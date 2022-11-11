@@ -1,0 +1,13 @@
+<?php
+	$id = $_POST['id_mahasiswa'];
+
+	include "../../assets/css.php";
+	include "../../assets/js.php";
+	include "../connection.php";
+	$delete = mysqli_query($connect,"DELETE FROM t_mahasiswa Where id_mahasiswa = $id") or die (mysqli_error($connect));
+	if ($delete) {
+		echo "<script>location.href='../../index.php?page=data_mahasiswa';alert('Data berhasil dihapus !')</script>";
+	}else{
+		echo "<script>location.href='../../index.php?page=data_mahasiswa';alert('Data gagal dihapus !')</script>";
+	}
+?>
